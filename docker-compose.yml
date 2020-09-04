@@ -1,0 +1,23 @@
+version: '3'
+services:
+  gnpsfbmngroups-dash:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gnpsfbmngroups-dash
+    volumes:
+      - ./output:/app/output:rw
+      - ./logs:/app/logs:rw
+    ports:
+    - "5853:5000"
+    networks:
+      - default
+      - nginx-net
+    restart: unless-stopped
+    command: /app/run_server.sh
+
+
+networks:
+  nginx-net:
+    external:
+      name: nginx-net
