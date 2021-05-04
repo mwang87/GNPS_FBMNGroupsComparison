@@ -154,16 +154,13 @@ def create_plot(gnps_task, metadata_column, metadata_terms, intensity_threshold)
     grouped_df = data_df.groupby("featureid")
     for group_df in grouped_df:
         try:
-            groups = list(set(group_df[1][metadata_column]))
+            groups = set(group_df[1][metadata_column])
+            groups = list(groups & metadata_terms)
+            
             membership.append(groups)
         except:
             print("ERROR")
             raise
-
-    # for group_value in data_df[metadata_column].to_list():
-    #     group_splits = set(group_value.split(","))
-    #     group_splits = list(group_splits & metadata_terms)
-    #     membership.append(group_splits)
     
     upset_data_df = from_memberships(membership)
 
