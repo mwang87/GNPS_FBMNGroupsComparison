@@ -171,14 +171,14 @@ def create_plot(gnps_task, metadata_column, metadata_terms, intensity_threshold)
                             show_counts=True)
 
     uuid_save = str(uuid.uuid4())
-    pyplot.savefig("./output/{}.png".format(uuid_save))
+    pyplot.savefig("./output/{}.svg".format(uuid_save))
     
     return [html.Img(src="/plot/{}".format(uuid_save))]
 
 @server.route("/plot/<uuid_save>")
 def download(uuid_save):
     """Serve a file from the upload directory."""
-    return send_from_directory("./output", uuid_save + ".png")
+    return send_from_directory("./output", uuid_save + ".svg")
 
 
 if __name__ == "__main__":
