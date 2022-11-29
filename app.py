@@ -26,11 +26,11 @@ NAVBAR = dbc.Navbar(
     children=[
         dbc.NavbarBrand(
             html.Img(src="https://gnps-cytoscape.ucsd.edu/static/img/GNPS_logo.png", width="120px"),
-            href="https://gnps.ucsd.edu"
+            href="https://www.cs.ucr.edu/~mingxunw/"
         ),
         dbc.Nav(
             [
-                dbc.NavItem(dbc.NavLink("GNPS FBMN Group Comparison Dashboard", href="#")),
+                dbc.NavItem(dbc.NavLink("GNPS2 FBMN Group Comparison Dashboard", href="#")),
             ],
         navbar=True)
     ],
